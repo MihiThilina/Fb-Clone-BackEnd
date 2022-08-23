@@ -1,8 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
-
 const app = express();
 const port =4000;
+
+const user = require('./routes/user')
 
 
 const url ='mongodb://localhost/faceBook_Clone'
@@ -14,7 +15,7 @@ con.on("open",()=>{
 })
 
 app.use(express.json())
-
+app.use('/user',user)
 
 
 app.listen(port,(req,res)=>{
