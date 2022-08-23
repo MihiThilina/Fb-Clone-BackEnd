@@ -59,17 +59,17 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
    try {
-      const User = await User.findById(req.params.id)
-      User.userID = req.body.userID,
-         User.firstName = req.body.firstName,
-         User.surename = req.body.surename,
-         User.gender = req.body.gender,
-         User.birthday = req.body.birthday,
-         User.password = req.body.password,
-         User.phoneNumber = req.body.phoneNumber,
-         User.email = req.body.email
+      const user = await User.findById(req.params.id)
+      user.userID = req.body.userID,
+         user.firstName = req.body.firstName,
+         user.surename = req.body.surename,
+         user.gender = req.body.gender,
+         user.birthday = req.body.birthday,
+         user.password = req.body.password,
+         user.phoneNumber = req.body.phoneNumber,
+         user.email = req.body.email
 
-      const response = await User.save()
+      const response = await user.save()
       res.json(response)
 
    } catch (err) {

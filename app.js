@@ -4,6 +4,7 @@ const app = express();
 const port =4000;
 
 const user = require('./routes/user')
+const login =require('./routes/login')
 
 
 const url ='mongodb://localhost/faceBook_Clone'
@@ -16,6 +17,7 @@ con.on("open",()=>{
 
 app.use(express.json())
 app.use('/user',user)
+app.use('/login',login)
 
 
 app.listen(port,(req,res)=>{
